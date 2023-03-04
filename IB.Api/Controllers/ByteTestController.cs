@@ -73,5 +73,21 @@ public class ByteTestController : Controller
     [HttpDelete]
     public async Task<BaseModel<object>> SnapshotCronDelete(string serverName, string snapshotName)
     => await _ilkByteService.ServerSnapshotCronDelete(serverName, snapshotName);
+
+    [HttpGet]
+    public async Task<BaseModel<BackupList>> BackupList(string serverName)
+    => await _ilkByteService.BackupList(serverName);
+
+    [HttpGet]
+    public async Task<BaseModel<Backup>> BackupRestore(string serverName , string backupName)
+    => await _ilkByteService.BackupRestore(serverName, backupName);
+
+    [HttpGet]
+    public async Task<BaseModel<DomainList>> DomainList(int paginationNumber = 1)
+    => await _ilkByteService.DomainList(paginationNumber);
+
+    [HttpPost]
+    public async Task<BaseModel<object>> DomainCreate(DomainCreateRequest request)
+    => await _ilkByteService.DomainCreate(request);
 }
 

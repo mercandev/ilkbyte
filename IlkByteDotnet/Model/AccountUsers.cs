@@ -7,12 +7,6 @@ public sealed class AccountUsers
     public List<UserList> user_list { get; set; }
 }
 
-public sealed class Pagination
-{
-    public int current_page { get; set; }
-    public int total_page { get; set; }
-}
-
 public sealed class UserList
 {
     public string email { get; set; }

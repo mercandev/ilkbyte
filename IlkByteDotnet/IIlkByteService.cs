@@ -20,5 +20,8 @@ public interface IIlkByteService
     Task<BaseModel<object>> ServerSnapshotOperation(string serverName, string snapshotName, SnapshotType snapshotType);
     Task<BaseModel<object>> ServerSnapshotCronCreate(SnapshotCronCreateRequest request);
     Task<BaseModel<object>> ServerSnapshotCronDelete(string serverName, string snapshotName);
-
+    Task<BaseModel<BackupList>> BackupList(string serverName);
+    Task<BaseModel<Backup>> BackupRestore(string serverName, string backupName);
+    Task<BaseModel<DomainList>> DomainList(int paginationNumber = 1);
+    Task<BaseModel<object>> DomainCreate(DomainCreateRequest request);
 }

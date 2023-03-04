@@ -22,5 +22,9 @@ public static class UrlConst
     public const string SNAPSHOT_DELETE_URL = "server/manage/{2}/snapshot/delete?access={0}&secret={1}&name={3}";
     public const string SNAPSHOT_CRON_ADD_URL = "server/manage/{2}/snapshot/cron/add?access={0}&secret={1}&name={3}&day={4}&hour={5}&min={6}";
     public const string SNAPSHOT_CRON_DELETE_URL = "server/manage/{2}/snapshot/cron/delete?access={0}&secret={1}&name={3}";
+    public const string BACKUP_LIST_URL = "server/manage/{2}/backup?access={0}&secret={1}";
+    public const string BACKUP_RESTORE = "server/manage/{2}/backup/restore?access={0}&secret={1}&backup_name={3}";
+    public const string DOMAIN_LIST = "domain/list?access={0}&secret={1}&p={2}";
+    public const string DOMAIN_CREATE = "domain/create?access={0}&secret={1}&domain={2}&server={3}&ipv6={4}";
 }
 

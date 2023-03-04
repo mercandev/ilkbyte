@@ -29,10 +29,34 @@ public class IlkByteService : IIlkByteService
         return await IlkByteHelper.GetService<BaseModel<Server>>(requestUrl);
     }
 
+    public async Task<BaseModel<BackupList>> BackupList(string serverName)
+    {
+        var requestUrl = string.Format(UrlConst.BASE_URL + UrlConst.BACKUP_LIST_URL, _ilkbyteAuth.Access, _ilkbyteAuth.Secret, serverName);
+        return await IlkByteHelper.GetService<BaseModel<BackupList>>(requestUrl);
+    }
+
+    public async Task<BaseModel<Backup>> BackupRestore(string serverName, string backupName)
+    {
+        var requestUrl = string.Format(UrlConst.BASE_URL + UrlConst.BACKUP_RESTORE, _ilkbyteAuth.Access, _ilkbyteAuth.Secret, serverName, backupName);
+        return await IlkByteHelper.GetService<BaseModel<Backup>>(requestUrl);
+    }
+
     public async Task<BaseModel<ServerCreate>> CreateServer(ServerCreateRequest request)
     {
         var requestUrl = string.Format(UrlConst.BASE_URL + UrlConst.SERVER_CREATE_URL, _ilkbyteAuth.Access, _ilkbyteAuth.Secret, request.username, request.password, request.name, request.os_id, request.app_id, request.package_id);
         return await IlkByteHelper.GetService<BaseModel<ServerCreate>>(requestUrl);
+    }
+
+    public async Task<BaseModel<object>> DomainCreate(DomainCreateRequest request)
+    {
+        var requestUrl = string.Format(UrlConst.BASE_URL + UrlConst.DOMAIN_CREATE, _ilkbyteAuth.Access, _ilkbyteAuth.Secret, request.Domain, request.Server, request.Ipv6);
+        return await IlkByteHelper.GetService<BaseModel<object>>(requestUrl);
+    }
+
+    public async Task<BaseModel<DomainList>> DomainList(int paginationNumber = 1)
+    {
+        var requestUrl = string.Format(UrlConst.BASE_URL + UrlConst.DOMAIN_LIST, _ilkbyteAuth.Access, _ilkbyteAuth.Secret, paginationNumber);
+        return await IlkByteHelper.GetService<BaseModel<DomainList>>(requestUrl);
     }
 
     public async Task<BaseModel<ServerConfigOptions>> ServerConfigOptions()
